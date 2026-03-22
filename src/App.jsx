@@ -1,3 +1,4 @@
+import logo from "./logo.png";
 import { useMemo, useRef, useState } from "react";
 import {
   Phone,
