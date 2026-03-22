@@ -153,85 +153,119 @@ export default function AgripartsLanding() {
     "Согласовываем и отгружаем заказ",
   ];
 
+  const handleBrandClick = (item) => {
+    setSelectedBrand(item);
+    setBrand(item);
+    requestAnimationFrame(() => {
+      document.getElementById("request")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(
+      "Сейчас это демонстрационная версия. Следующим шагом мы подключим реальную отправку формы на e-mail."
+    );
+  };
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 antialiased">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-          <a href="#top" className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#12676d] text-base font-bold text-white">
-              AP
-            </div>
+    <div className="page">
+      <header className="site-header">
+        <div className="container header-row">
+          <a href="#top" className="logo-wrap">
+            <div className="logo-box">AP</div>
             <div>
-              <div className="text-lg font-semibold">Agriparts.by</div>
-              <div className="text-xs text-slate-500">Оптовые поставки запчастей</div>
+              <div className="logo-title">Agriparts.by</div>
+              <div className="logo-subtitle">Оптовые поставки запчастей</div>
             </div>
           </a>
 
-          <nav className="hidden items-center gap-7 md:flex">
-            <a href="#brands" className="text-sm text-slate-600 hover:text-[#12676d]">Бренды</a>
-            <a href="#advantages" className="text-sm text-slate-600 hover:text-[#12676d]">Преимущества</a>
-            <a href="#how" className="text-sm text-slate-600 hover:text-[#12676d]">Как работаем</a>
-            <a href="#request" className="rounded-xl bg-[#12676d] px-4 py-2.5 text-sm font-semibold text-white">Отправить запрос</a>
+          <nav className="desktop-nav">
+            <a href="#brands">Бренды</a>
+            <a href="#advantages">Преимущества</a>
+            <a href="#how">Как работаем</a>
+            <a href="#request" className="btn btn-primary btn-small">
+              Отправить запрос
+            </a>
           </nav>
 
           <button
             type="button"
+            className="mobile-menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="rounded-xl border border-slate-200 p-2 md:hidden"
             aria-label="Открыть меню"
           >
-            <Menu className="h-5 w-5" />
+            <Menu size={20} />
           </button>
         </div>
 
         {menuOpen && (
-          <div className="border-t border-slate-200 bg-white md:hidden">
-            <div className="mx-auto flex max-w-7xl flex-col px-5 py-4 text-sm">
-              <a href="#brands" className="py-2">Бренды</a>
-              <a href="#advantages" className="py-2">Преимущества</a>
-              <a href="#how" className="py-2">Как работаем</a>
-              <a href="#request" className="mt-3 rounded-xl bg-[#12676d] px-4 py-3 text-center font-semibold text-white">Отправить запрос</a>
+          <div className="mobile-menu">
+            <div className="container mobile-menu-links">
+              <a href="#brands">Бренды</a>
+              <a href="#advantages">Преимущества</a>
+              <a href="#how">Как работаем</a>
+              <a href="#request" className="btn btn-primary">
+                Отправить запрос
+              </a>
             </div>
           </div>
         )}
       </header>
 
       <main id="top">
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(18,103,109,0.16),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(11,31,59,0.08),transparent_30%)]" />
-          <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-5 py-14 lg:grid-cols-[1.15fr_0.85fr] lg:px-8 lg:py-24">
+        <section className="hero">
+          <div className="hero-bg" />
+          <div className="container hero-grid">
             <div>
-              <div className="inline-flex items-center rounded-full border border-[#12676d]/15 bg-[#12676d]/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#12676d]">
-                B2B · Беларусь
-              </div>
+              <div className="badge">B2B · Беларусь</div>
 
-              <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-tight md:text-6xl">
+              <h1 className="hero-title">
                 Оптовые поставки запчастей
-                <span className="block text-[#12676d]">по списку артикулов</span>
+                <span>по списку артикулов</span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base text-slate-600 md:text-lg">
-                Отправьте бренд, список артикулов и количество. Можно вставить список в форму или прикрепить Excel-файл.
+              <p className="hero-text">
+                Отправьте бренд, список артикулов и количество. Можно вставить
+                список в форму или прикрепить Excel-файл.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <a href="#request" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#12676d] px-6 py-3.5 text-sm font-semibold text-white">
-                  Отправить запрос <ChevronRight className="h-4 w-4" />
+              <div className="hero-actions">
+                <a href="#request" className="btn btn-primary">
+                  Отправить запрос <ChevronRight size={16} />
                 </a>
-                <a href="tel:+375291576316" className="inline-flex items-center justify-center gap-2 rounded-2xl border px-6 py-3.5 text-sm font-semibold">
-                  <Phone className="h-4 w-4" /> +375 29 157 63 16
+                <a href="tel:+375291576316" className="btn btn-outline">
+                  <Phone size={16} /> +375 29 157 63 16
                 </a>
+              </div>
+
+              <div className="stats-grid">
+                <div className="stat-card">
+                  <div className="stat-value">100+</div>
+                  <div className="stat-label">брендов техники</div>
+                </div>
+                <div className="stat-card">
+                  <div className="stat-value">Excel</div>
+                  <div className="stat-label">или список в форме</div>
+                </div>
+                <div className="stat-card">
+                  <div className="stat-value">B2B</div>
+                  <div className="stat-label">оптовые запросы</div>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-2xl">
-              <div className="mb-4 text-sm text-slate-500">Пример запроса</div>
-              <div className="space-y-3">
-                <div className="rounded-2xl bg-slate-50 p-4 text-sm">Бренд: John Deere</div>
-                <div className="rounded-2xl bg-slate-50 p-4 text-sm">AH140123 — 10 шт</div>
-                <div className="rounded-2xl bg-slate-50 p-4 text-sm">AXE456789 — 4 шт</div>
-                <div className="rounded-2xl bg-slate-50 p-4 text-sm">RE521420 — 2 шт</div>
-                <a href="#request" className="flex w-full items-center justify-center rounded-2xl bg-[#0B1F3B] px-4 py-3 text-sm font-semibold text-white">
+            <div className="hero-card">
+              <div className="card-small-title">Пример запроса</div>
+              <div className="example-list">
+                <div className="example-item">Бренд: John Deere</div>
+                <div className="example-item">AH140123 — 10 шт</div>
+                <div className="example-item">AXE456789 — 4 шт</div>
+                <div className="example-item">RE521420 — 2 шт</div>
+                <a href="#request" className="btn btn-dark full-width">
                   Перейти к форме
                 </a>
               </div>
@@ -239,52 +273,49 @@ export default function AgripartsLanding() {
           </div>
         </section>
 
-        <section id="brands" className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <h2 className="text-3xl font-semibold">Бренды</h2>
-            <div className="w-full md:w-[360px]">
-              <input
-                value={brandQuery}
-                onChange={(e) => setBrandQuery(e.target.value)}
-                className="w-full rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-[#12676d]"
-                placeholder="Поиск по бренду"
-              />
+        <section id="brands" className="section">
+          <div className="container">
+            <div className="section-head">
+              <h2>Бренды</h2>
+              <div className="search-box">
+                <input
+                  value={brandQuery}
+                  onChange={(e) => setBrandQuery(e.target.value)}
+                  placeholder="Поиск по бренду"
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="mb-5 text-sm text-slate-500">{filteredBrands.length} брендов</div>
+            <div className="brands-count">{filteredBrands.length} брендов</div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
-            {filteredBrands.map((item) => (
-              <button
-                key={item}
-                type="button"
-                onClick={() => {
-                  setSelectedBrand(item);
-                  setBrand(item);
-                  requestAnimationFrame(() => {
-                    document.getElementById("request")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  });
-                }}
-                className="rounded-[1.5rem] border border-slate-200 bg-white p-5 text-left text-sm font-medium shadow-sm transition hover:-translate-y-0.5 hover:border-[#12676d]/30 hover:shadow-md"
-              >
-                {item}
-              </button>
-            ))}
+            <div className="brands-grid">
+              {filteredBrands.map((item) => (
+                <button
+                  key={item}
+                  type="button"
+                  className="brand-card"
+                  onClick={() => handleBrandClick(item)}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="advantages" className="bg-slate-50">
-          <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-            <h2 className="mb-8 text-3xl font-semibold">Преимущества</h2>
-            <div className="grid gap-5 lg:grid-cols-3">
+        <section id="advantages" className="section section-light">
+          <div className="container">
+            <h2 className="section-title">Преимущества</h2>
+            <div className="advantages-grid">
               {advantages.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <div key={item.title} className="rounded-[2rem] border border-slate-200 bg-white p-7 shadow-sm">
-                    <div className="mb-4 text-[#12676d]"><Icon className="h-6 w-6" /></div>
-                    <h3 className="font-semibold">{item.title}</h3>
-                    <p className="mt-2 text-sm text-slate-600">{item.text}</p>
+                  <div key={item.title} className="info-card">
+                    <div className="icon-wrap">
+                      <Icon size={22} />
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
                   </div>
                 );
               })}
@@ -292,44 +323,48 @@ export default function AgripartsLanding() {
           </div>
         </section>
 
-        <section id="how" className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
-          <h2 className="mb-8 text-3xl font-semibold">Как работаем</h2>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {steps.map((step, i) => (
-              <div key={step} className="rounded-[1.5rem] border border-slate-200 bg-white p-6 shadow-sm">
-                <div className="mb-3 text-lg font-bold text-[#12676d]">{i + 1}</div>
-                <div className="text-sm">{step}</div>
-              </div>
-            ))}
+        <section id="how" className="section">
+          <div className="container">
+            <h2 className="section-title">Как работаем</h2>
+            <div className="steps-grid">
+              {steps.map((step, i) => (
+                <div key={step} className="step-card">
+                  <div className="step-number">{i + 1}</div>
+                  <div className="step-text">{step}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 pb-16 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-[2rem] bg-[#0B1F3B] p-8 text-white">
-              <h2 className="text-3xl font-semibold">Свяжитесь с нами</h2>
-              <div className="mt-6 space-y-3 text-sm text-white/85">
+        <section className="section section-bottom">
+          <div className="container request-grid">
+            <div className="contact-card">
+              <h2>Свяжитесь с нами</h2>
+              <div className="contact-list">
                 <div>Телефон: +375 29 157 63 16</div>
                 <div>E-mail: info@agriparts.by</div>
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
             </div>
 
-            <div id="request" className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
-              <h3 className="text-2xl font-semibold">
-                {selectedBrand ? `Запрос по бренду ${selectedBrand}` : "Отправить оптовый запрос"}
+            <div id="request" className="form-card">
+              <h3>
+                {selectedBrand
+                  ? `Запрос по бренду ${selectedBrand}`
+                  : "Отправить оптовый запрос"}
               </h3>
-              <p className="mt-2 text-sm text-slate-600">
+
+              <p className="form-intro">
                 {selectedBrand
                   ? `Укажите список позиций по бренду ${selectedBrand} или прикрепите Excel-файл.`
                   : "Укажите бренд техники и вставьте список позиций, либо прикрепите Excel-файл."}
               </p>
 
-              <form className="mt-6 space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="request-form" onSubmit={handleSubmit}>
                 <input
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-[#12676d]"
                   placeholder="Название компании"
                 />
 
@@ -337,7 +372,6 @@ export default function AgripartsLanding() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-[#12676d]"
                   placeholder="E-mail для отправки предложения"
                 />
 
@@ -347,10 +381,10 @@ export default function AgripartsLanding() {
                     setBrand(e.target.value);
                     setSelectedBrand(e.target.value);
                   }}
-                  className="w-full rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-[#12676d]"
                   placeholder="Бренд техники"
                   list="brands-list"
                 />
+
                 <datalist id="brands-list">
                   {brands.map((b) => (
                     <option key={b} value={b} />
@@ -360,14 +394,14 @@ export default function AgripartsLanding() {
                 <textarea
                   value={partsList}
                   onChange={(e) => setPartsList(e.target.value)}
-                  className="min-h-[180px] w-full rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-[#12676d]"
+                  className="textarea-large"
                   placeholder={`Список позиций:\nAH140123 - 10 шт\nAXE456789 - 4 шт\nRE521420 - 2 шт`}
                 />
 
                 <textarea
                   value={specialRequests}
                   onChange={(e) => setSpecialRequests(e.target.value)}
-                  className="min-h-[120px] w-full rounded-xl border border-slate-300 bg-white p-3 outline-none focus:border-[#12676d]"
+                  className="textarea-medium"
                   placeholder="Особые пожелания: сроки, условия поставки, аналоги, оригинал / неоригинал, комментарии"
                 />
 
@@ -376,37 +410,36 @@ export default function AgripartsLanding() {
                   type="file"
                   accept=".xls,.xlsx,.csv"
                   style={{ display: "none" }}
-                  onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
+                  onChange={(e) =>
+                    setFileName(e.target.files?.[0]?.name || "")
+                  }
                 />
 
-                <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-4">
-                  <div className="flex items-center gap-3">
-                    <Upload className="h-5 w-5 text-[#12676d]" />
-                    <div className="flex-1">
-                      <div className="text-sm font-medium">Excel-файл со списком запчастей</div>
-                      <div className="text-xs text-slate-500">.xls, .xlsx, .csv</div>
+                <div className="upload-box">
+                  <div className="upload-row">
+                    <Upload className="upload-icon" size={20} />
+                    <div className="upload-text">
+                      <div className="upload-title">
+                        Excel-файл со списком запчастей
+                      </div>
+                      <div className="upload-subtitle">.xls, .xlsx, .csv</div>
                     </div>
                     <button
                       type="button"
-                      onClick={() => fileInputRef.current && fileInputRef.current.click()}
-                      className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 hover:border-[#12676d] hover:text-[#12676d]"
+                      className="upload-btn"
+                      onClick={() =>
+                        fileInputRef.current && fileInputRef.current.click()
+                      }
                     >
                       Выбрать файл
                     </button>
                   </div>
                 </div>
 
-                {fileName && (
-                  <div className="rounded-xl bg-slate-50 p-3 text-sm text-slate-700">
-                    Файл: {fileName}
-                  </div>
-                )}
+                {fileName && <div className="file-name">Файл: {fileName}</div>}
 
-                <button
-                  type="submit"
-                  className="w-full rounded-xl bg-[#12676d] py-3 text-sm font-semibold text-white hover:opacity-95"
-                >
-                  Отправить запрос
+                <button type="submit" className="btn btn-primary full-width">
+                  <Send size={16} /> Отправить запрос
                 </button>
               </form>
             </div>
@@ -414,7 +447,7 @@ export default function AgripartsLanding() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-200 py-6 text-center text-sm text-slate-500">
+      <footer className="site-footer">
         © 2026 Agriparts.by
       </footer>
     </div>
