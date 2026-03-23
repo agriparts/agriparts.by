@@ -210,7 +210,7 @@ export default function AgripartsLanding() {
                   Отправить запрос <ChevronRight size={16} />
                 </a>
                 <a href="tel:+375291576316" className="btn btn-outline">
-                  <Phone size={16} /> +375 29 157 63 16
+                  <Phone size={16} /> +375 29 638 18 48
                 </a>
               </div>
 
@@ -314,7 +314,7 @@ export default function AgripartsLanding() {
             <div className="contact-card">
               <h2>Свяжитесь с нами</h2>
               <div className="contact-list">
-                <div>Телефон: +375 29 157 63 16</div>
+                <div>Телефон: +375 29 638 18 48</div>
                 <div>E-mail: info@agriparts.by</div>
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
@@ -394,7 +394,7 @@ export default function AgripartsLanding() {
                 <input
                   type="hidden"
                   name="_subject"
-                  value={`Запрос запчастей на сайте Agriparts.by. ${brand || "Без бренда"}`}
+                  value={`ЗАПРОС ЗАПЧАСТЕЙ | ${brand || "Без бренда"} | Agriparts.by`}
                 />
 
                 <input
