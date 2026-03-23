@@ -481,7 +481,7 @@ export default function AgripartsLanding() {
                     <Upload className="upload-icon" size={20} />
                     <div className="upload-text">
                       <div className="upload-title">
-                        Excel-файл со списком запчастей
+                        Excel-файл со списком запчастей (в файле должно быть 2 столбца: артикул и количество)
                       </div>
                       <div className="upload-subtitle">.xls, .xlsx, .csv</div>
                     </div>
