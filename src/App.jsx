@@ -37,7 +37,7 @@ export default function AgripartsLanding() {
   const brands = useMemo(
     () =>
       [
-         { name: "A.K. Development", logo: "/brands/a-k-development.png" },
+      { name: "A.K. Development", logo: "/brands/a-k-development.png" },
       { name: "AEC", logo: "/brands/aec.png" },
       { name: "AGCO", logo: "/brands/agco.png" },
       { name: "Agricola Italiana", logo: "/brands/agricola-italiana.png" },
