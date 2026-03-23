@@ -133,13 +133,6 @@ export default function AgripartsLanding() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(
-      "Сейчас это демонстрационная версия. Следующим шагом мы подключим реальную отправку формы на e-mail."
-    );
-  };
-
   return (
    <div className="logo-wrap">
   <img src={logo} className="logo-img" />
