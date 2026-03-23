@@ -267,7 +267,6 @@ export default function AgripartsLanding() {
                 </button>
               ))}
             </div>
-          </div>
         </section>
 
         <section id="advantages" className="section section-light">
