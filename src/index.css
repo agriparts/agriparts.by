@@ -390,25 +390,40 @@ button {
 }
 
 .brand-card {
+  height: 120px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #fff;
   border: 1px solid var(--border);
-  background: var(--white);
-  border-radius: 22px;
-  padding: 18px;
-  text-align: center;
-  font-size: 15px;
-  font-weight: 500;
-  min-height: 62px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--shadow-sm);
-  transition: 0.2s ease;
+  gap: 14px;
+  text-align: left;
+  transition: all 0.2s ease;
+  overflow: hidden;
 }
 
 .brand-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(18, 103, 109, 0.3);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
+}
+.brand-logo {
+  flex: 0 0 auto;
+  width: 130px;
+  height: 40px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+.brand-name {
+  flex: 1 1 auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+  text-align: left;
 }
 
 /* ADVANTAGES / STEPS */
