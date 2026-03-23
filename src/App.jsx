@@ -22,6 +22,7 @@ export default function AgripartsLanding() {
   const [specialRequests, setSpecialRequests] = useState("");
   const [fileName, setFileName] = useState("");
   const fileInputRef = useRef(null);
+  const [phone, setPhone] = useState("");
   const [requestId] = useState(() => {
     const now = new Date();
     const y = now.getFullYear();
@@ -377,7 +378,16 @@ export default function AgripartsLanding() {
                   placeholder="E-mail для отправки предложения"
                   required
                 />
-
+                <input type="hidden" name="_replyto" value={email} />
+                <input
+                  type="tel"
+                  name="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="Телефон"
+                  inputMode="tel"
+                  required
+                />
                 <input
                   name="brand"
                   value={brand}
@@ -417,7 +427,7 @@ export default function AgripartsLanding() {
                 <input
                   type="hidden"
                   name="_subject"
-                  value={`${requestId} | ЗАПРОС ЗАПЧАСТЕЙ | ${brand || "Без бренда"} | Agriparts.by`}
+                  value={`${requestId} | ${brand || "Без бренда"} | ${companyName || "Без компании"} | Agriparts.by`}
                 />
 
                 <input
@@ -425,6 +435,7 @@ export default function AgripartsLanding() {
                   type="file"
                   name="attachment"
                   accept=".xls,.xlsx,.csv"
+                  multiple={false}
                   style={{ display: "none" }}
                   onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
                 />
