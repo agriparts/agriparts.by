@@ -43,11 +43,13 @@ export default function AgripartsLanding() {
         "Damas",
         "Dammann",
         "Deutz-Fahr",
+        "Duport",
         "Einböck",
         "Fendt",
         "Fliegl",
         "Gregoire Besson",
         "Güstrower",
+        "Göweil",
         "Hardi",
         "Holmer",
         "Horsch",
@@ -139,16 +141,15 @@ export default function AgripartsLanding() {
   };
 
   return (
-    <div className="page">
-      <header className="site-header">
-        <div className="container header-row">
-          <a href="#top" className="logo-wrap">
-            <div className="logo-box">AP</div>
-            <div>
-              <div className="logo-title">Agriparts.by</div>
-              <div className="logo-subtitle">Оптовые поставки запчастей</div>
-            </div>
-          </a>
+   <div className="logo-wrap">
+  <img src={logo} className="logo-img" />
+  <div>
+    <div className="logo-title">Agriparts.by</div>
+    <div className="logo-subtitle">Оптовые поставки запчастей</div>
+  </div>
+
+     </div>
+    </a>
 
           <nav className="desktop-nav">
             <a href="#brands">Бренды</a>
@@ -309,7 +310,7 @@ export default function AgripartsLanding() {
             <div className="contact-card">
               <h2>Свяжитесь с нами</h2>
               <div className="contact-list">
-                <div>Телефон: +375 29 157 63 16</div>
+                <div>Телефон: +375 29 638 18 48</div>
                 <div>E-mail: info@agriparts.by</div>
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
