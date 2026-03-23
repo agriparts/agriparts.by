@@ -683,3 +683,20 @@ button {
     grid-template-columns: repeat(5, 1fr);
   }
 }
+a.btn.btn-primary,
+a.btn.btn-primary:visited,
+a.btn.btn-primary:hover,
+a.btn.btn-primary:active,
+button.btn.btn-primary,
+button.btn.btn-primary:hover,
+button.btn.btn-primary:active {
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+a.btn.btn-primary svg,
+button.btn.btn-primary svg {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
