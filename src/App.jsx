@@ -134,15 +134,16 @@ export default function AgripartsLanding() {
   };
 
   return (
-   <div className="logo-wrap">
-  <img src={logo} className="logo-img" />
-  <div>
-    <div className="logo-title">Agriparts.by</div>
-    <div className="logo-subtitle">Оптовые поставки запчастей</div>
-  </div>
-
-     </div>
-    </a>
+    <div className="page-shell">
+      <header className="site-header">
+        <div className="container header-inner">
+          <a href="#top" className="logo-wrap">
+            <img src={logo} className="logo-img" alt="Agriparts.by" />
+            <div>
+              <div className="logo-title">Agriparts.by</div>
+              <div className="logo-subtitle">Оптовые поставки запчастей</div>
+            </div>
+          </a>
 
           <nav className="desktop-nav">
             <a href="#brands">Бренды</a>
@@ -166,10 +167,20 @@ export default function AgripartsLanding() {
         {menuOpen && (
           <div className="mobile-menu">
             <div className="container mobile-menu-links">
-              <a href="#brands">Бренды</a>
-              <a href="#advantages">Преимущества</a>
-              <a href="#how">Как работаем</a>
-              <a href="#request" className="btn btn-primary">
+              <a href="#brands" onClick={() => setMenuOpen(false)}>
+                Бренды
+              </a>
+              <a href="#advantages" onClick={() => setMenuOpen(false)}>
+                Преимущества
+              </a>
+              <a href="#how" onClick={() => setMenuOpen(false)}>
+                Как работаем
+              </a>
+              <a
+                href="#request"
+                className="btn btn-primary"
+                onClick={() => setMenuOpen(false)}
+              >
                 Отправить запрос
               </a>
             </div>
@@ -303,7 +314,7 @@ export default function AgripartsLanding() {
             <div className="contact-card">
               <h2>Свяжитесь с нами</h2>
               <div className="contact-list">
-                <div>Телефон: +375 29 638 18 48</div>
+                <div>Телефон: +375 29 157 63 16</div>
                 <div>E-mail: info@agriparts.by</div>
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
@@ -323,8 +334,8 @@ export default function AgripartsLanding() {
               </p>
 
               <form
-                className="request-form" 
-                action="https://formspree.io/f/xqeyvgjg" 
+                className="request-form"
+                action="https://formspree.io/f/xqeyvgjg"
                 method="POST"
                 encType="multipart/form-data"
               >
@@ -379,19 +390,20 @@ export default function AgripartsLanding() {
                   className="textarea-medium"
                   placeholder="Особые пожелания: сроки, условия поставки, аналоги, оригинал / неоригинал, комментарии"
                 />
+
                 <input
                   type="hidden"
                   name="_subject"
-                  value={`Запрос запчастей Agriparts.by: ${brand || "Без бренда"}`}
+                  value={`Запрос запчастей на сайте Agriparts.by. ${brand || "Без бренда"}`}
                 />
+
                 <input
                   ref={fileInputRef}
                   type="file"
+                  name="attachment"
                   accept=".xls,.xlsx,.csv"
                   style={{ display: "none" }}
-                  onChange={(e) =>
-                    setFileName(e.target.files?.[0]?.name || "")
-                  }
+                  onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
                 />
 
                 <div className="upload-box">
@@ -426,9 +438,7 @@ export default function AgripartsLanding() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        © 2026 Agriparts.by
-      </footer>
+      <footer className="site-footer">© 2026 Agriparts.by</footer>
     </div>
   );
 }
