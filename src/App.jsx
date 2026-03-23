@@ -1,4 +1,4 @@
-import logo from "./logo.png";
+import logo from "./agriparts_logo_transparent.png";
 import { useMemo, useRef, useState } from "react";
 import {
   Phone,
