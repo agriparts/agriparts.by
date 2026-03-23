@@ -318,9 +318,16 @@ export default function AgripartsLanding() {
                 <div>Проспект Машерова 25/3, офис 612</div>
                 <div>220002 Минск</div>
                 <div style={{ marginTop: "12px" }}>
-                  Телефон: +375 29 638 18 48
+                  Телефон:{" "}
+                  <a href="tel:+375296381848" className="contact-link">
+                   +375 29 638 18 48
+                  </a>
                 </div>
-                <div>E-mail: info@agriparts.by</div>
+                <div>
+                  E-mail:{" "}
+                  <a href="mailto:info@agriparts.by" className="contact-link">
+                    info@agriparts.by
+                  </a>
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
             </div>
