@@ -22,7 +22,17 @@ export default function AgripartsLanding() {
   const [specialRequests, setSpecialRequests] = useState("");
   const [fileName, setFileName] = useState("");
   const fileInputRef = useRef(null);
-
+  const [requestId] = useState(() => {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    const hh = String(now.getHours()).padStart(2, "0");
+    const mm = String(now.getMinutes()).padStart(2, "0");
+    const ss = String(now.getSeconds()).padStart(2, "0");
+    const rnd = Math.floor(Math.random() * 900 + 100);
+    return `AP-${y}${m}${d}-${hh}${mm}${ss}-${rnd}`;
+});
   const brands = useMemo(
     () =>
       [
@@ -402,11 +412,12 @@ export default function AgripartsLanding() {
                   className="textarea-medium"
                   placeholder="Особые пожелания: сроки, условия поставки, аналоги, оригинал / неоригинал, комментарии"
                 />
+                <input type="hidden" name="request_id" value={requestId} />
 
                 <input
                   type="hidden"
                   name="_subject"
-                  value={`ЗАПРОС ЗАПЧАСТЕЙ | ${brand || "Без бренда"} | Agriparts.by`}
+                  value={`${requestId} | ЗАПРОС ЗАПЧАСТЕЙ | ${brand || "Без бренда"} | Agriparts.by`}
                 />
 
                 <input
