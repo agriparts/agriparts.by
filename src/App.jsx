@@ -314,12 +314,17 @@ export default function AgripartsLanding() {
             <div className="contact-card">
               <h2>Свяжитесь с нами</h2>
               <div className="contact-list">
-                <div>Телефон: +375 29 638 18 48</div>
+                <div><strong>ООО ЭДВИСЕНС</strong></div>
+                <div>Проспект Машерова 25/3, офис 612</div>
+                <div>220002 Минск</div>
+                <div style={{ marginTop: "12px" }}>
+                  Телефон: +375 29 638 18 48
+                </div>
                 <div>E-mail: info@agriparts.by</div>
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
             </div>
-
+          </div>
             <div id="request" className="form-card">
               <h3>
                 {selectedBrand
