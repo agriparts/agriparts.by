@@ -253,7 +253,7 @@ export default function AgripartsLanding() {
                   className="brand-card"
                   onClick={() => handleBrandClick(item.name)}
                 >
-                  {item.logo ? (
+                  {item.logo && (
                     <img
                       src={item.logo}
                       alt={item.name}
