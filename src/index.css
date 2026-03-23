@@ -249,7 +249,7 @@ button {
 
 .btn-primary {
   background: var(--accent);
-  color: var(--white);
+  color: #ffffff;
   box-shadow: var(--shadow-sm);
 }
 
