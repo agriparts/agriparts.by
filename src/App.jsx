@@ -182,7 +182,7 @@ export default function AgripartsLanding() {
 
               <h1 className="hero-title">
                 Оптовые поставки запчастей
-                <span>по списку артикулов</span>
+                <span>к импортной сельхозтехнике</span>
               </h1>
 
               <p className="hero-text">
