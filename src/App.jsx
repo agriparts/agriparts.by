@@ -37,75 +37,49 @@ export default function AgripartsLanding() {
   const brands = useMemo(
     () =>
       [
-        "AGCO",
-        "Agrifac",
-        "Agromasz",
-        "Amazone",
-        "Annaburger",
-        "Bednar",
-        "Bergmann",
-        "Bogballe",
-        "Bredal",
-        "CNH Industrial",
-        "Case IH",
-        "Caterpillar",
-        "Cimbria",
-        "Claas",
-        "Damas",
-        "Dammann",
-        "Deutz-Fahr",
-        "Duport",
-        "Einböck",
-        "Fendt",
-        "Fliegl",
-        "Gregoire Besson",
-        "Güstrower",
-        "Göweil",
-        "Hardi",
-        "Holmer",
-        "Horsch",
-        "JCB",
-        "John Deere",
-        "Joskin",
-        "Krampe",
-        "Kubota",
-        "Kuhn",
-        "Kverneland",
-        "Köckerling",
-        "Lemken",
-        "Maschio Gaspardo",
-        "Massey Ferguson",
-        "McHale",
-        "Metaltech",
-        "Monosem",
-        "New Holland",
-        "Oxbo",
-        "Ploeger",
-        "Petkus",
-        "Pichon",
-        "Pöttinger",
-        "Pronar",
-        "Rauch",
-        "Ropa",
-        "SDF Group",
-        "SIP",
-        "Schmotzer",
-        "Simon",
-        "Strautmann",
-        "Sulky",
-        "Tebbe",
-        "Tecnoma",
-        "Tume",
-        "Valtra",
-        "Väderstad",
-      ].sort((a, b) => a.localeCompare(b, "ru")),
+        { name: "AEC", logo: "/brands/aec.png" },
+        { name: "AGCO", logo: "/brands/agco.png" },
+        { name: "Agrifac", logo: "/brands/agrifac.png" },
+        { name: "Amazone", logo: "/brands/amazone.png" },
+        { name: "John Deere", logo: "/brands/john-deere.png" },
+        { name: "Annovi Reverberi", logo: "" },
+        { name: "ASA-LIFT", logo: "" },
+        { name: "BISO", logo: "" },
+        { name: "Bourgault", logo: "" },
+        { name: "Bourgoin", logo: "" },
+        { name: "Case IH", logo: "" },
+        { name: "Cimbria", logo: "" },
+        { name: "Claas", logo: "" },
+        { name: "Dammann", logo: "" },
+        { name: "Deutz-Fahr", logo: "" },
+        { name: "Duport", logo: "" },
+        { name: "Fendt", logo: "" },
+        { name: "Fliegl", logo: "" },
+        { name: "Güstrower", logo: "" },
+        { name: "Hardi", logo: "" },
+        { name: "Horsch", logo: "" },
+        { name: "Joskin", logo: "" },
+        { name: "Kuhn", logo: "" },
+        { name: "Kverneland", logo: "" },
+        { name: "Lemken", logo: "" },
+        { name: "New Holland", logo: "" },
+        { name: "Petkus", logo: "" },
+        { name: "Pronar", logo: "" },
+        { name: "Rauch", logo: "" },
+        { name: "Ropa", logo: "" },
+        { name: "Sulky", logo: "" },
+        { name: "Tebbe", logo: "" },
+        { name: "Tume", logo: "" },
+        { name: "Valtra", logo: "" },
+        { name: "Väderstad", logo: "" },
+      ].sort((a, b) => a.name.localeCompare(b.name, "ru")),
     []
   );
 
   const filteredBrands = useMemo(() => {
     const q = brandQuery.trim().toLowerCase();
     if (!q) return brands;
-    return brands.filter((b) => b.toLowerCase().includes(q));
+    return brands.filter((b) => b.name.toLowerCase().includes(q));
   }, [brands, brandQuery]);
 
   const advantages = [
@@ -274,12 +248,22 @@ export default function AgripartsLanding() {
             <div className="brands-grid">
               {filteredBrands.map((item) => (
                 <button
-                  key={item}
+                  key={item.name}
                   type="button"
                   className="brand-card"
-                  onClick={() => handleBrandClick(item)}
+                  onClick={() => handleBrandClick(item.name)}
                 >
-                  {item}
+                  {item.logo ? (
+                    <img
+                      src={item.logo}
+                      alt={item.name}
+                      className="brand-logo"
+                      onError={(e) => {
+                        e.currentTarget.style.display = "none";
+                      }}
+                    />
+                  )}
+                  <span className="brand-name">{item.name}</span>
                 </button>
               ))}
             </div>
@@ -402,7 +386,7 @@ export default function AgripartsLanding() {
 
                 <datalist id="brands-list">
                   {brands.map((b) => (
-                    <option key={b} value={b} />
+                    <option key={b.name} value={b.name} />
                   ))}
                 </datalist>
 
