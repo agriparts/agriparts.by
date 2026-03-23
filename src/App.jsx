@@ -136,7 +136,7 @@ export default function AgripartsLanding() {
   return (
     <div className="page-shell">
       <header className="site-header">
-        <div className="container header-inner">
+        <div className="container header-row">
           <a href="#top" className="logo-wrap">
             <img src={logo} className="logo-img" alt="Agriparts.by" />
             <div>
