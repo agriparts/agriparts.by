@@ -328,6 +328,7 @@ export default function AgripartsLanding() {
                   <a href="mailto:info@agriparts.by" className="contact-link">
                     info@agriparts.by
                   </a>
+                </div>
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
             </div>
