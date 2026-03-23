@@ -329,21 +329,31 @@ export default function AgripartsLanding() {
                   : "Укажите бренд техники и вставьте список позиций, либо прикрепите Excel-файл."}
               </p>
 
-              <form className="request-form" onSubmit={handleSubmit}>
+              <form
+                className="request-form" 
+                action="https://formspree.io/f/xqeyvgjg" 
+                method="POST"
+                encType="multipart/form-data"
+              >
                 <input
+                  name="company"
                   value={companyName}
                   onChange={(e) => setCompanyName(e.target.value)}
                   placeholder="Название компании"
+                  required
                 />
 
                 <input
                   type="email"
+                  name="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="E-mail для отправки предложения"
+                  required
                 />
 
                 <input
+                  name="brand"
                   value={brand}
                   onChange={(e) => {
                     setBrand(e.target.value);
@@ -351,6 +361,7 @@ export default function AgripartsLanding() {
                   }}
                   placeholder="Бренд техники"
                   list="brands-list"
+                  required
                 />
 
                 <datalist id="brands-list">
@@ -360,19 +371,26 @@ export default function AgripartsLanding() {
                 </datalist>
 
                 <textarea
+                  name="parts_list"
                   value={partsList}
                   onChange={(e) => setPartsList(e.target.value)}
                   className="textarea-large"
                   placeholder={`Список позиций:\nAH140123 - 10 шт\nAXE456789 - 4 шт\nRE521420 - 2 шт`}
+                  required
                 />
 
                 <textarea
+                  name="comment"
                   value={specialRequests}
                   onChange={(e) => setSpecialRequests(e.target.value)}
                   className="textarea-medium"
                   placeholder="Особые пожелания: сроки, условия поставки, аналоги, оригинал / неоригинал, комментарии"
                 />
-
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value={`Запрос запчастей Agriparts.by: ${brand || "Без бренда"}`}
+                />
                 <input
                   ref={fileInputRef}
                   type="file"
