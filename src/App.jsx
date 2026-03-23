@@ -324,7 +324,6 @@ export default function AgripartsLanding() {
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
             </div>
-          </div>
             <div id="request" className="form-card">
               <h3>
                 {selectedBrand
