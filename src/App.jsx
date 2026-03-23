@@ -253,7 +253,7 @@ export default function AgripartsLanding() {
 
               <div className="stats-grid">
                 <div className="stat-card">
-                  <div className="stat-value">100+</div>
+                  <div className="stat-value">85+</div>
                   <div className="stat-label">брендов техники</div>
                 </div>
                 <div className="stat-card">
