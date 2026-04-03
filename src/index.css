@@ -834,33 +834,6 @@ button.btn.btn-primary svg {
   font-weight: 600;
 }
 
-.brand-strip-v2 {
-  margin-top: 22px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-}
-
-.brand-strip-v2-item {
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  min-height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 16px;
-}
-
-.brand-strip-v2-logo {
-  max-width: 130px;
-  max-height: 34px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-}
-
 .brand-form-section-v2 {
   padding: 18px 0 64px;
 }
@@ -959,5 +932,125 @@ button.btn.btn-primary svg {
   .brand-text-card-v2,
   .brand-request-form-v2 {
     padding: 18px;
+  }
+}
+.brand-marquee-section {
+  margin-top: 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(17, 24, 39, 0.03);
+  overflow: hidden;
+}
+
+.brand-marquee-head {
+  margin-bottom: 18px;
+}
+
+.brand-marquee-head h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #111827;
+}
+
+.brand-marquee-head p {
+  margin: 0;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.brand-marquee {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.brand-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: max-content;
+  animation: brandMarquee 55s linear infinite;
+}
+
+.brand-marquee:hover .brand-marquee-track {
+  animation-play-state: paused;
+}
+
+.brand-marquee-item {
+  flex: 0 0 auto;
+  min-width: 220px;
+  height: 86px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  border: 1px solid #e8edf3;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.brand-marquee-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+  border-color: #d8e2ea;
+}
+
+.brand-marquee-logo {
+  flex: 0 0 auto;
+  width: 110px;
+  height: 34px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  filter: saturate(1);
+}
+
+.brand-marquee-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.2;
+}
+
+@keyframes brandMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 720px) {
+  .brand-marquee-section {
+    padding: 18px;
+  }
+
+  .brand-marquee-head h3 {
+    font-size: 20px;
+  }
+
+  .brand-marquee-head p {
+    font-size: 14px;
+  }
+
+  .brand-marquee-item {
+    min-width: 180px;
+    height: 74px;
+    padding: 12px 14px;
+  }
+
+  .brand-marquee-logo {
+    width: 88px;
+    height: 28px;
+  }
+
+  .brand-marquee-name {
+    font-size: 13px;
   }
 }
