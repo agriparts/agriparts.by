@@ -10,6 +10,8 @@ import {
   ShieldCheck,
   Truck,
 } from "lucide-react";
+import BrandPage from "./pages/BrandPage";
+import { brandList, slugifyBrand } from "./data/brands";
 
 export default function AgripartsLanding() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,6 +25,7 @@ export default function AgripartsLanding() {
   const [fileName, setFileName] = useState("");
   const fileInputRef = useRef(null);
   const [phone, setPhone] = useState("");
+
   const [requestId] = useState(() => {
     const now = new Date();
     const y = now.getFullYear();
@@ -33,100 +36,9 @@ export default function AgripartsLanding() {
     const ss = String(now.getSeconds()).padStart(2, "0");
     const rnd = Math.floor(Math.random() * 900 + 100);
     return `AP-${y}${m}${d}-${hh}${mm}${ss}-${rnd}`;
-});
-  const brands = useMemo(
-    () =>
-      [
-      { name: "A.K. Development", logo: "/brands/a-k-development.png" },
-      { name: "AEC", logo: "/brands/aec.png" },
-      { name: "AGCO", logo: "/brands/agco.png" },
-      { name: "Agricola Italiana", logo: "/brands/agricola-italiana.png" },
-      { name: "Agrifac", logo: "/brands/agrifac.png" },
-      { name: "Allround Vegetable", logo: "/brands/allround-vegetable.png" },
-      { name: "Alpego", logo: "/brands/alpego.png" },
-      { name: "Amazone", logo: "/brands/amazone.png" },
-      { name: "Annovi Reverberi", logo: "/brands/annovi-reverberi.png" },
-      { name: "ASA-LIFT", logo: "/brands/asa-lift.png" },
-      { name: "Baur Folien", logo: "/brands/baur-folien.png" },
-      { name: "Bergmann", logo: "/brands/bergmann.png" },
-      { name: "BISO", logo: "/brands/biso.png" },
-      { name: "Bobman", logo: "/brands/bobman.png" },
-      { name: "Bogballe", logo: "/brands/bogballe.png" },
-      { name: "Bourgault", logo: "/brands/bourgault.png" },
-      { name: "Bourgoin", logo: "/brands/bourgoin.png" },
-      { name: "Broch", logo: "/brands/broch.png" },
-      { name: "Case IH", logo: "/brands/case-ih.png" },
-      { name: "Challenger", logo: "/brands/challenger.png" },
-      { name: "Cimbria", logo: "/brands/cimbria.png" },
-      { name: "Claas", logo: "/brands/claas.png" },
-      { name: "Cretes", logo: "/brands/cretes.png" },
-      { name: "Dammann", logo: "/brands/dammann.png" },
-      { name: "Dana Spicer", logo: "/brands/dana-spicer.png" },
-      { name: "Deutz-Fahr", logo: "/brands/deutz-fahr.png" },
-      { name: "Dewulf", logo: "/brands/dewulf.png" },
-      { name: "Donaldson", logo: "/brands/donaldson.png" },
-      { name: "Duport", logo: "/brands/duport.png" },
-      { name: "Eisele", logo: "/brands/eisele.png" },
-      { name: "Fendt", logo: "/brands/fendt.png" },
-      { name: "Ferrari", logo: "/brands/ferrari.png" },
-      { name: "Fliegl", logo: "/brands/fliegl.png" },
-      { name: "Geringhoff", logo: "/brands/geringhoff.png" },
-      { name: "Goweil", logo: "/brands/goweil.png" },
-      { name: "Granit", logo: "/brands/granit.png" },
-      { name: "Gregoire Besson", logo: "/brands/gregoire-besson.png" },
-      { name: "Grimme", logo: "/brands/grimme.png" },
-      { name: "Güstrower", logo: "/brands/gustrower.png" },
-      { name: "Hardi", logo: "/brands/hardi.png" },
-      { name: "Hemos", logo: "/brands/hemos.png" },
-      { name: "Holmer", logo: "/brands/holmer.png" },
-      { name: "Horsch", logo: "/brands/horsch.png" },
-      { name: "JCB", logo: "/brands/jcb.png" },
-      { name: "John Deere", logo: "/brands/john-deere.png" },
-      { name: "Joskin", logo: "/brands/joskin.png" },
-      { name: "Kivi-Pekka", logo: "/brands/kivi-pekka.png" },
-      { name: "Kramp", logo: "/brands/kramp.png" },
-      { name: "Krone", logo: "/brands/krone.png" },
-      { name: "Kuhn", logo: "/brands/kuhn.png" },
-      { name: "Kverneland", logo: "/brands/kverneland.png" },
-      { name: "La Meccanica", logo: "/brands/la-meccanica.png" },
-      { name: "Lemken", logo: "/brands/lemken.png" },
-      { name: "Manitou", logo: "/brands/manitou.png" },
-      { name: "Massey Ferguson", logo: "/brands/massey-ferguson.png" },
-      { name: "Merlo", logo: "/brands/merlo.png" },
-      { name: "Metal-Fach", logo: "/brands/metal-fach.png" },
-      { name: "Monosem", logo: "/brands/monosem.png" },
-      { name: "Montefiori", logo: "/brands/montefiori.png" },
-      { name: "New Holland", logo: "/brands/new-holland.png" },
-      { name: "OXBO", logo: "/brands/oxbo.png" },
-      { name: "Paulmichl", logo: "/brands/paulmichl.png" },
-      { name: "Pedrotti", logo: "/brands/pedrotti.png" },
-      { name: "Perwolf", logo: "/brands/perwolf.png" },
-      { name: "Petkus", logo: "/brands/petkus.png" },
-      { name: "Pomot", logo: "/brands/pomot.png" },
-      { name: "Pöttinger", logo: "/brands/pottinger.png" },
-      { name: "Rabe", logo: "/brands/rabe.png" },
-      { name: "Rauch", logo: "/brands/rauch.png" },
-      { name: "RUF", logo: "/brands/ruf.png" },
-      { name: "Sauter", logo: "/brands/sauter.png" },
-      { name: "Sgariboldi", logo: "/brands/sgariboldi.png" },
-      { name: "Simatek", logo: "/brands/simatek.png" },
-      { name: "Simon", logo: "/brands/simon.png" },
-      { name: "SPAG", logo: "/brands/spag.png" },
-      { name: "Tebbe", logo: "/brands/tebbe.png" },
-      { name: "Tume", logo: "/brands/tume.png" },
-      { name: "Union", logo: "/brands/union.png" },
-      { name: "Väderstad", logo: "/brands/vaderstad.png" },
-      { name: "Valtra", logo: "/brands/valtra.png" },
-      { name: "Vanhauwaert", logo: "/brands/vanhauwaert.png" },
-      { name: "Vensys", logo: "/brands/vensys.png" },
-      { name: "Vogt", logo: "/brands/vogt.png" },
-      { name: "Wagner", logo: "/brands/wagner.png" },
-      { name: "Wyma", logo: "/brands/wyma.png" },
-      { name: "Zocapi", logo: "/brands/zocapi.png" },
-      { name: "Zurn", logo: "/brands/zurn.png" },
-      ].sort((a, b) => a.name.localeCompare(b.name, "ru")),
-    []
-  );
+  });
+
+  const brands = brandList;
 
   const filteredBrands = useMemo(() => {
     const q = brandQuery.trim().toLowerCase();
@@ -160,15 +72,16 @@ export default function AgripartsLanding() {
   ];
 
   const handleBrandClick = (item) => {
-    setSelectedBrand(item);
-    setBrand(item);
-    requestAnimationFrame(() => {
-      document.getElementById("request")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
+    window.location.href = `/brands/${slugifyBrand(item)}`;
   };
+
+  const currentPath =
+    typeof window !== "undefined" ? window.location.pathname : "/";
+
+  if (currentPath.startsWith("/brands/")) {
+    const brandSlug = currentPath.replace("/brands/", "").replace(/\/$/, "");
+    return <BrandPage brandSlug={brandSlug} />;
+  }
 
   return (
     <div className="page-shell">
@@ -319,8 +232,8 @@ export default function AgripartsLanding() {
                 </button>
               ))}
             </div>
-            </div>
-            </section>
+          </div>
+        </section>
 
         <section id="advantages" className="section section-light">
           <div className="container">
@@ -361,13 +274,15 @@ export default function AgripartsLanding() {
             <div className="contact-card">
               <h2>Свяжитесь с нами</h2>
               <div className="contact-list">
-                <div><strong>ООО ЭДВИСЕНС</strong></div>
+                <div>
+                  <strong>ООО ЭДВИСЕНС</strong>
+                </div>
                 <div>Проспект Машерова 25/3, офис 612</div>
                 <div>220002 Минск</div>
                 <div style={{ marginTop: "12px" }}>
                   Телефон:{" "}
                   <a href="tel:+375296381848" className="contact-link">
-                   +375 29 638 18 48
+                    +375 29 638 18 48
                   </a>
                 </div>
                 <div>
@@ -379,6 +294,7 @@ export default function AgripartsLanding() {
                 <div>Формат запроса: бренд + артикул + количество</div>
               </div>
             </div>
+
             <div id="request" className="form-card">
               <h3>
                 {selectedBrand
@@ -414,7 +330,9 @@ export default function AgripartsLanding() {
                   placeholder="E-mail для отправки предложения"
                   required
                 />
+
                 <input type="hidden" name="_replyto" value={email} />
+
                 <input
                   type="tel"
                   name="phone"
@@ -424,6 +342,7 @@ export default function AgripartsLanding() {
                   inputMode="tel"
                   required
                 />
+
                 <input
                   name="brand"
                   value={brand}
@@ -458,6 +377,7 @@ export default function AgripartsLanding() {
                   className="textarea-medium"
                   placeholder="Особые пожелания: сроки, условия поставки, аналоги, оригинал / неоригинал, комментарии"
                 />
+
                 <input type="hidden" name="request_id" value={requestId} />
 
                 <input
