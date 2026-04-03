@@ -973,7 +973,7 @@ button.btn.btn-primary svg {
   align-items: center;
   gap: 18px;
   width: max-content;
-  animation: brandMarquee 55s linear infinite;
+  animation: brandMarquee 120s linear infinite;
 }
 
 .brand-marquee:hover .brand-marquee-track {
