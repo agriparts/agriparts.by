@@ -195,7 +195,7 @@ export default function BrandPage({ brandSlug }) {
                   {[...brandList, ...brandList].map((item, index) => (
                     <div
                       key={`${item.name}-${index}`}
-                      className="brand-marquee-item"
+                      className={`brand-marquee-item ${activeLogoIndex === index ? "is-active" : ""}`}
                     >
                       <img
                         src={item.logo}
