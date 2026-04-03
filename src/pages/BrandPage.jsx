@@ -10,8 +10,6 @@ import {
 import logo from "../agriparts_logo_transparent.png";
 import { brandList, getBrandBySlug } from "../data/brands";
 
-const stripBrands = brandList.filter((b) => featuredStrip.includes(b.name));
-
 export default function BrandPage({ brandSlug }) {
   const data = useMemo(() => getBrandBySlug(brandSlug), [brandSlug]);
 
@@ -39,7 +37,7 @@ export default function BrandPage({ brandSlug }) {
     if (!data) return;
 
     const description =
-      `Запчасти ${data.name} оптом. Оригинальные и аналоговые комплектующие для сельскохозяйственной техники. ` +
+      `Запчасти ${data.name} в Беларуси. Оригинальные и аналоговые комплектующие для сельскохозяйственной техники. ` +
       `Отправьте список артикулов и получите предложение от Agriparts.by.`;
 
     document.title = `Запчасти ${data.name} в Беларуси | Agriparts.by`;
@@ -86,8 +84,6 @@ export default function BrandPage({ brandSlug }) {
     );
   }
 
-  const stripBrands = brandList.filter((b) => featuredStrip.includes(b.name));
-
   return (
     <div className="page-shell">
       <header className="site-header">
@@ -105,7 +101,7 @@ export default function BrandPage({ brandSlug }) {
             <a href="/#advantages">Преимущества</a>
             <a href="/#how">Как работаем</a>
             <a href="#brand-request" className="btn btn-primary btn-small">
-              Отправить запрос
+              Отправить заявку
             </a>
           </nav>
         </div>
@@ -115,17 +111,19 @@ export default function BrandPage({ brandSlug }) {
         <section className="brand-hero-v2">
           <div className="container brand-hero-v2-grid">
             <div className="brand-hero-v2-copy">
-              <div className="brand-badge-v2">B2B · {data.name}</div>
+              <div className="brand-badge-v2">Беларусь · {data.name}</div>
+
               <h1 className="brand-title-v2">Запчасти {data.name} в Беларуси</h1>
+
               <p className="brand-lead-v2">
                 Поставляем оригинальные и аналоговые запчасти {data.name} для
-                сельскохозяйственной техники. Работаем с оптовыми клиентами и
-                запросами по списку артикулов.
+                сельскохозяйственной техники. Работаем с фермерскими
+                хозяйствами, сервисами и компаниями.
               </p>
 
               <div className="brand-hero-v2-actions">
                 <a href="#brand-request" className="btn btn-primary">
-                  Отправить запрос
+                  Отправить заявку
                 </a>
               </div>
             </div>
@@ -144,20 +142,22 @@ export default function BrandPage({ brandSlug }) {
           <div className="container">
             <div className="brand-text-card-v2">
               <h2>Поставка запчастей {data.name}</h2>
+
               <p>
-                Компания Agriparts.by осуществляет оптовые поставки запчастей{" "}
-                {data.name} для сельскохозяйственной техники и другого
-                оборудования бренда.
+                Компания Agriparts.by поставляет запчасти {data.name} для
+                сельскохозяйственной техники и другого оборудования бренда по
+                всей Беларуси.
               </p>
+
               <p>
                 Мы работаем с оригинальными и аналоговыми комплектующими,
-                обеспечивая оптимальное соотношение цены, сроков и надежности
-                поставки.
+                помогая подобрать оптимальное решение по цене, срокам и
+                надежности поставки.
               </p>
+
               <p>
                 Для получения предложения отправьте список артикулов и
-                количество — мы подготовим коммерческое предложение с ценами и
-                сроками.
+                количество — мы подготовим предложение с ценами и сроками.
               </p>
             </div>
 
@@ -172,7 +172,7 @@ export default function BrandPage({ brandSlug }) {
               </div>
               <div className="brand-adv-item-v2">
                 <Briefcase size={18} />
-                <span>Работа с B2B клиентами</span>
+                <span>Работаем с фермерами и компаниями</span>
               </div>
               <div className="brand-adv-item-v2">
                 <ShieldCheck size={18} />
@@ -181,37 +181,42 @@ export default function BrandPage({ brandSlug }) {
             </div>
 
             <div className="brand-marquee-section">
-  <div className="brand-marquee-head">
-    <h3>Другие бренды в поставке</h3>
-    <p>
-      Работаем с широким спектром брендов сельскохозяйственной техники и комплектующих.
-    </p>
-  </div>
+              <div className="brand-marquee-head">
+                <h3>Другие бренды в поставке</h3>
+                <p>
+                  Работаем с широким спектром брендов сельскохозяйственной техники
+                  и комплектующих.
+                </p>
+              </div>
 
-  <div className="brand-marquee">
-    <div className="brand-marquee-track">
-      {[...brandList, ...brandList].map((item, index) => (
-        <div key={`${item.name}-${index}`} className="brand-marquee-item">
-          <img
-            src={item.logo}
-            alt={`${item.name} логотип`}
-            className="brand-marquee-logo"
-          />
-          <span className="brand-marquee-name">{item.name}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
+              <div className="brand-marquee">
+                <div className="brand-marquee-track">
+                  {[...brandList, ...brandList].map((item, index) => (
+                    <div
+                      key={`${item.name}-${index}`}
+                      className="brand-marquee-item"
+                    >
+                      <img
+                        src={item.logo}
+                        alt={`${item.name} логотип`}
+                        className="brand-marquee-logo"
+                      />
+                      <span className="brand-marquee-name">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="brand-request" className="brand-form-section-v2">
           <div className="container">
             <div className="brand-form-head-v2">
-              <h2>Отправить запрос</h2>
+              <h2>Отправить заявку</h2>
               <p>
                 Укажите бренд {data.name}, список артикулов и количество — мы
-                свяжемся с вами.
+                подготовим предложение и свяжемся с вами.
               </p>
             </div>
 
@@ -270,6 +275,7 @@ export default function BrandPage({ brandSlug }) {
               />
 
               <input type="hidden" name="request_id" value={requestId} />
+
               <input
                 type="hidden"
                 name="_subject"
@@ -307,7 +313,7 @@ export default function BrandPage({ brandSlug }) {
               {fileName && <div className="file-name">Файл: {fileName}</div>}
 
               <button type="submit" className="btn btn-primary full-width">
-                <Send size={16} /> Отправить запрос
+                <Send size={16} /> Отправить заявку
               </button>
             </form>
 
