@@ -23,6 +23,7 @@ const featuredStrip = [
 
 export default function BrandPage({ brandSlug }) {
   const data = useMemo(() => getBrandBySlug(brandSlug), [brandSlug]);
+
   const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -120,99 +121,100 @@ export default function BrandPage({ brandSlug }) {
       </header>
 
       <main className="brand-page">
-        <section className="brand-hero">
-          <div className="container brand-hero-grid">
-            <div className="brand-hero-copy">
-              <div className="brand-badge">B2B · {data.name}</div>
-
-              <h1 className="brand-title">Запчасти {data.name} оптом</h1>
-
-              <p className="brand-lead">
+        <section className="brand-hero-v2">
+          <div className="container brand-hero-v2-grid">
+            <div className="brand-hero-v2-copy">
+              <div className="brand-badge-v2">B2B · {data.name}</div>
+              <h1 className="brand-title-v2">Запчасти {data.name} оптом</h1>
+              <p className="brand-lead-v2">
                 Поставляем оригинальные и аналоговые запчасти {data.name} для
                 сельскохозяйственной техники. Работаем с оптовыми клиентами и
                 запросами по списку артикулов.
               </p>
 
-              <a href="#brand-request" className="btn btn-primary">
-                Отправить запрос
-              </a>
+              <div className="brand-hero-v2-actions">
+                <a href="#brand-request" className="btn btn-primary">
+                  Отправить запрос
+                </a>
+              </div>
             </div>
 
-            <div className="brand-hero-visual">
-              <div className="brand-hero-logo-card">
-                <img
-                  src={data.logo}
-                  alt={`${data.name} запчасти`}
-                  className="brand-hero-logo"
-                />
-              </div>
+            <div className="brand-hero-v2-card">
+              <img
+                src={data.logo}
+                alt={`${data.name} запчасти`}
+                className="brand-hero-v2-logo"
+              />
             </div>
           </div>
         </section>
 
-        <section className="brand-section">
-          <div className="container brand-copy-wrap">
-            <h2>Поставка запчастей {data.name}</h2>
+        <section className="brand-content-v2">
+          <div className="container">
+            <div className="brand-text-card-v2">
+              <h2>Поставка запчастей {data.name}</h2>
+              <p>
+                Компания Agriparts.by осуществляет оптовые поставки запчастей{" "}
+                {data.name} для сельскохозяйственной техники и другого
+                оборудования бренда.
+              </p>
+              <p>
+                Мы работаем с оригинальными и аналоговыми комплектующими,
+                обеспечивая оптимальное соотношение цены, сроков и надежности
+                поставки.
+              </p>
+              <p>
+                Для получения предложения отправьте список артикулов и
+                количество — мы подготовим коммерческое предложение с ценами и
+                сроками.
+              </p>
+            </div>
 
-            <p>
-              Компания Agriparts.by осуществляет оптовые поставки запчастей{" "}
-              {data.name} для сельскохозяйственной техники и другого
-              оборудования бренда.
-            </p>
-
-            <p>
-              Мы работаем с оригинальными и аналоговыми комплектующими,
-              обеспечивая оптимальное соотношение цены, сроков и надежности
-              поставки.
-            </p>
-
-            <p>
-              Для получения предложения отправьте список артикулов и количество
-              — мы подготовим коммерческое предложение с ценами и сроками.
-            </p>
-
-            <div className="brand-advantages-row">
-              <div className="brand-adv-card">
-                <CheckCircle2 size={20} />
+            <div className="brand-adv-grid-v2">
+              <div className="brand-adv-item-v2">
+                <CheckCircle2 size={18} />
                 <span>Более 85 брендов</span>
               </div>
-              <div className="brand-adv-card">
-                <Truck size={20} />
+              <div className="brand-adv-item-v2">
+                <Truck size={18} />
                 <span>Прямые поставки</span>
               </div>
-              <div className="brand-adv-card">
-                <Briefcase size={20} />
+              <div className="brand-adv-item-v2">
+                <Briefcase size={18} />
                 <span>Работа с B2B клиентами</span>
               </div>
-              <div className="brand-adv-card">
-                <ShieldCheck size={20} />
+              <div className="brand-adv-item-v2">
+                <ShieldCheck size={18} />
                 <span>Быстрая обработка заявок</span>
               </div>
             </div>
 
-            <div className="brand-strip">
+            <div className="brand-strip-v2">
               {stripBrands.map((item) => (
-                <img
-                  key={item.name}
-                  src={item.logo}
-                  alt={`${item.name} логотип`}
-                  className="brand-strip-logo"
-                />
+                <div key={item.name} className="brand-strip-v2-item">
+                  <img
+                    src={item.logo}
+                    alt={`${item.name} логотип`}
+                    className="brand-strip-v2-logo"
+                  />
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="brand-request" className="brand-form-section">
+        <section id="brand-request" className="brand-form-section-v2">
           <div className="container">
-            <h2 className="brand-form-title">Отправить запрос</h2>
-            <p className="brand-form-subtitle">
-              Укажите бренд {data.name}, список артикулов и количество — мы
-              свяжемся с вами.
-            </p>
+            <div className="brand-form-head-v2">
+              <h2>Отправить запрос</h2>
+              <p>
+                Укажите бренд {data.name}, список артикулов и количество — мы
+                свяжемся с вами.
+              </p>
+            </div>
 
             <form
-              className="brand-request-form"
+              className="brand-request-form-v2"
               action="https://formspree.io/f/xqeyvgjg"
               method="POST"
               encType="multipart/form-data"
@@ -225,7 +227,7 @@ export default function BrandPage({ brandSlug }) {
                 required
               />
 
-              <div className="brand-form-two">
+              <div className="brand-form-two-v2">
                 <input
                   type="email"
                   name="email"
@@ -291,7 +293,9 @@ export default function BrandPage({ brandSlug }) {
                   <button
                     type="button"
                     className="upload-btn"
-                    onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                    onClick={() =>
+                      fileInputRef.current && fileInputRef.current.click()
+                    }
                   >
                     Обзор файла
                   </button>
@@ -305,7 +309,7 @@ export default function BrandPage({ brandSlug }) {
               </button>
             </form>
 
-            <div className="brand-bottom-points">
+            <div className="brand-bottom-points-v2">
               <span>Оригинал и аналоги</span>
               <span>Быстрая поставка</span>
               <span>Выгодные условия</span>
