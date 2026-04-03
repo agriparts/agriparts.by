@@ -51,7 +51,7 @@ export default function BrandPage({ brandSlug }) {
       `Запчасти ${data.name} оптом. Оригинальные и аналоговые комплектующие для сельскохозяйственной техники. ` +
       `Отправьте список артикулов и получите предложение от Agriparts.by.`;
 
-    document.title = `Запчасти ${data.name} оптом | Agriparts.by`;
+    document.title = `Запчасти ${data.name} в Беларуси | Agriparts.by`;
 
     let meta = document.querySelector("meta[name='description']");
     if (meta) meta.setAttribute("content", description);
