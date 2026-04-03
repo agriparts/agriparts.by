@@ -201,7 +201,6 @@ export default function BrandPage({ brandSlug }) {
                         alt={`${item.name} логотип`}
                         className="brand-marquee-logo"
                       />
-                      <span className="brand-marquee-name">{item.name}</span>
                     </div>
                   ))}
                 </div>
