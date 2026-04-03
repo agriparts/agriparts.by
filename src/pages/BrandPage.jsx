@@ -10,16 +10,7 @@ import {
 import logo from "../agriparts_logo_transparent.png";
 import { brandList, getBrandBySlug } from "../data/brands";
 
-const featuredStrip = [
-  "John Deere",
-  "Amazone",
-  "Horsch",
-  "Kverneland",
-  "Lemken",
-  "Kuhn",
-  "Claas",
-  "New Holland",
-];
+const stripBrands = brandList.filter((b) => featuredStrip.includes(b.name));
 
 export default function BrandPage({ brandSlug }) {
   const data = useMemo(() => getBrandBySlug(brandSlug), [brandSlug]);
@@ -189,18 +180,29 @@ export default function BrandPage({ brandSlug }) {
               </div>
             </div>
 
-            <div className="brand-strip-v2">
-              {stripBrands.map((item) => (
-                <div key={item.name} className="brand-strip-v2-item">
-                  <img
-                    src={item.logo}
-                    alt={`${item.name} логотип`}
-                    className="brand-strip-v2-logo"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+            <div className="brand-marquee-section">
+  <div className="brand-marquee-head">
+    <h3>Другие бренды в поставке</h3>
+    <p>
+      Работаем с широким спектром брендов сельскохозяйственной техники и комплектующих.
+    </p>
+  </div>
+
+  <div className="brand-marquee">
+    <div className="brand-marquee-track">
+      {[...brandList, ...brandList].map((item, index) => (
+        <div key={`${item.name}-${index}`} className="brand-marquee-item">
+          <img
+            src={item.logo}
+            alt={`${item.name} логотип`}
+            className="brand-marquee-logo"
+          />
+          <span className="brand-marquee-name">{item.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
         </section>
 
         <section id="brand-request" className="brand-form-section-v2">
