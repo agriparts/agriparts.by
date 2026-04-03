@@ -74,7 +74,7 @@ export default function BrandPage({ brandSlug }) {
       tag.setAttribute("content", value);
     };
 
-    setMetaProperty("og:title", `Запчасти ${data.name} оптом | Agriparts.by`);
+    setMetaProperty("og:title", `Запчасти ${data.name} в Беларуси | Agriparts.by`);
     setMetaProperty("og:description", description);
     setMetaProperty("og:url", `https://agriparts.by/brands/${brandSlug}`);
     setMetaProperty("og:type", "website");
@@ -105,7 +105,7 @@ export default function BrandPage({ brandSlug }) {
             <img src={logo} className="logo-img" alt="Agriparts.by" />
             <div>
               <div className="logo-title">Agriparts.by</div>
-              <div className="logo-subtitle">Оптовые поставки запчастей</div>
+              <div className="logo-subtitle">Поставки запчастей</div>
             </div>
           </a>
 
@@ -125,7 +125,7 @@ export default function BrandPage({ brandSlug }) {
           <div className="container brand-hero-v2-grid">
             <div className="brand-hero-v2-copy">
               <div className="brand-badge-v2">B2B · {data.name}</div>
-              <h1 className="brand-title-v2">Запчасти {data.name} оптом</h1>
+              <h1 className="brand-title-v2">Запчасти {data.name} в Беларуси</h1>
               <p className="brand-lead-v2">
                 Поставляем оригинальные и аналоговые запчасти {data.name} для
                 сельскохозяйственной техники. Работаем с оптовыми клиентами и
