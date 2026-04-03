@@ -982,39 +982,30 @@ button.btn.btn-primary svg {
 
 .brand-marquee-item {
   flex: 0 0 auto;
-  min-width: 220px;
-  height: 86px;
-  padding: 14px 18px;
-  border-radius: 18px;
-  border: 1px solid #e8edf3;
-  background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
   display: flex;
   align-items: center;
-  gap: 14px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.brand-marquee-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
-  border-color: #d8e2ea;
+  justify-content: center;
 }
 
 .brand-marquee-logo {
-  flex: 0 0 auto;
-  width: 110px;
-  height: 34px;
+  height: 36px;
+  width: auto;
   object-fit: contain;
-  object-position: left center;
+  object-position: center;
   display: block;
-  filter: saturate(1);
+
+  /* визуал */
+  filter: grayscale(100%);
+  opacity: 0.7;
+
+  transition: all 0.3s ease;
 }
 
-.brand-marquee-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #1f2937;
-  line-height: 1.2;
+/* hover эффект */
+.brand-marquee-item:hover .brand-marquee-logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.08);
 }
 
 @keyframes brandMarquee {
