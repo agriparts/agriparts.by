@@ -50,7 +50,7 @@ export default function AgripartsLanding() {
     {
       icon: Search,
       title: "Оптовые запросы",
-      text: "Работаем со списками запчастей: артикул и количество.",
+      text: "Работаем с аграриями, сервисами и торговыми компаниями.",
     },
     {
       icon: ShieldCheck,
@@ -91,7 +91,7 @@ export default function AgripartsLanding() {
             <img src={logo} className="logo-img" alt="Agriparts.by" />
             <div>
               <div className="logo-title">Agriparts.by</div>
-              <div className="logo-subtitle">Оптовые поставки запчастей</div>
+              <div className="logo-subtitle">Поставки запчастей</div>
             </div>
           </a>
 
@@ -146,7 +146,7 @@ export default function AgripartsLanding() {
               <div className="badge">B2B · Беларусь</div>
 
               <h1 className="hero-title">
-                Оптовые поставки запчастей
+                Поставки запчастей
                 <span>к импортной сельхозтехнике</span>
               </h1>
 
@@ -157,7 +157,7 @@ export default function AgripartsLanding() {
 
               <div className="hero-actions">
                 <a href="#request" className="btn btn-primary">
-                  Отправить запрос <ChevronRight size={16} />
+                  Отправить заявку <ChevronRight size={16} />
                 </a>
                 <a href="tel:+375291576316" className="btn btn-outline">
                   <Phone size={16} /> +375 29 638 18 48
