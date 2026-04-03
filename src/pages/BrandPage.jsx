@@ -20,6 +20,7 @@ export default function BrandPage({ brandSlug }) {
   const [specialRequests, setSpecialRequests] = useState("");
   const [fileName, setFileName] = useState("");
   const fileInputRef = useRef(null);
+  const [activeLogoIndex, setActiveLogoIndex] = useState(0);
 
   const [requestId] = useState(() => {
     const now = new Date();
